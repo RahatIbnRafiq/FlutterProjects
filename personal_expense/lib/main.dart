@@ -49,10 +49,10 @@ class _MyHomePageState extends State<MyHomePage> {
   final amountController = TextEditingController();
 
   final List<Transaction> _userTransactions = [
-    Transaction(
-        id: 't1', title: 'new shoes', amount: 100.99, date: DateTime.now()),
-    Transaction(
-        id: 't2', title: 'new jacket', amount: 200.99, date: DateTime.now())
+    // Transaction(
+    //     id: 't1', title: 'new shoes', amount: 100.99, date: DateTime.now()),
+    // Transaction(
+    //     id: 't2', title: 'new jacket', amount: 200.99, date: DateTime.now())
   ];
 
   void _addNewTransaction(String titleTx, double amountTx) {
