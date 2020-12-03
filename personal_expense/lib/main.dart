@@ -97,6 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(Object context) {
+    final mediaQuery = MediaQuery.of(context);
     final appBar = AppBar(
       title: Text("Personal Expense"),
       actions: [
@@ -131,14 +132,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             if (!isLandscape)
               Container(
-                  height: (MediaQuery.of(context).size.height -
-                          appBar.preferredSize.height -
-                          MediaQuery.of(context).padding.top) *
-                      0.3,
-                  child: Chart(_recentTransactions)),
+                height: (mediaQuery.size.height -
+                        appBar.preferredSize.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.3,
+                child: Chart(_recentTransactions),
+              ),
             if (!isLandscape)
               Container(
-                  height: (MediaQuery.of(context).size.height -
+                  height: (mediaQuery.size.height -
                           appBar.preferredSize.height -
                           MediaQuery.of(context).padding.top) *
                       0.7,
@@ -147,13 +149,13 @@ class _MyHomePageState extends State<MyHomePage> {
             if (isLandscape)
               _showChart
                   ? Container(
-                      height: (MediaQuery.of(context).size.height -
+                      height: (mediaQuery.size.height -
                               appBar.preferredSize.height -
                               MediaQuery.of(context).padding.top) *
                           0.7,
                       child: Chart(_recentTransactions))
                   : Container(
-                      height: (MediaQuery.of(context).size.height -
+                      height: (mediaQuery.size.height -
                               appBar.preferredSize.height -
                               MediaQuery.of(context).padding.top) *
                           0.7,
