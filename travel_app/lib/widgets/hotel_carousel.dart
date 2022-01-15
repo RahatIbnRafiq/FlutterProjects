@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:travel_app/models/destination_model.dart';
+import 'package:travel_app/models/hotel_model.dart';
 
-class DestinationCarousel extends StatelessWidget {
+class HotelCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,7 +14,7 @@ class DestinationCarousel extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Top Destinations',
+                'Exclusive Hotels',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 22.0,
@@ -41,12 +40,12 @@ class DestinationCarousel extends StatelessWidget {
           height: 300.0,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: destinations.length,
+            itemCount: hotels.length,
             itemBuilder: (context, index) {
-              Destination destination = destinations[index];
+              Hotel hotel = hotels[index];
               return Container(
                 margin: EdgeInsets.all(10.0),
-                width: 210.0,
+                width: 250.0,
                 child: Stack(
                   alignment: Alignment.topCenter,
                   children: [
@@ -54,7 +53,7 @@ class DestinationCarousel extends StatelessWidget {
                       bottom: 15.0,
                       child: Container(
                         height: 120.0,
-                        width: 200.0,
+                        width: 240.0,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10.0),
@@ -63,10 +62,9 @@ class DestinationCarousel extends StatelessWidget {
                           padding: const EdgeInsets.all(10.0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "${destination.activities.length} activities",
+                                hotel.name,
                                 style: TextStyle(
                                   fontSize: 22.0,
                                   fontWeight: FontWeight.w600,
@@ -74,9 +72,17 @@ class DestinationCarousel extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                destination.description,
+                                hotel.address,
                                 style: TextStyle(
                                   color: Colors.grey,
+                                ),
+                              ),
+                              Text(
+                                '\$${hotel.price} / night',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18.0,
                                 ),
                               ),
                             ],
@@ -99,52 +105,17 @@ class DestinationCarousel extends StatelessWidget {
                       child: Stack(
                         children: [
                           Hero(
-                            tag: destination.imageUrl,
+                            tag: hotel.imageUrl,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(20.0),
                               child: Image(
                                 height: 180.0,
-                                width: 180.0,
-                                image: AssetImage(destination.imageUrl),
+                                width: 240.0,
+                                image: AssetImage(hotel.imageUrl),
                                 fit: BoxFit.cover,
                               ),
                             ),
                           ),
-                          Positioned(
-                            bottom: 10.0,
-                            left: 10.0,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  destination.city,
-                                  style: TextStyle(
-                                    fontSize: 24.0,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(
-                                      FontAwesomeIcons.locationArrow,
-                                      color: Colors.white,
-                                      size: 10.0,
-                                    ),
-                                    SizedBox(
-                                      width: 5.0,
-                                    ),
-                                    Text(
-                                      destination.country,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          )
                         ],
                       ),
                     ),
