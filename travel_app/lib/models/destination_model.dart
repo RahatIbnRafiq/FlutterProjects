@@ -1,4 +1,4 @@
-import 'package:flutter_travel_ui_starter/models/activity_model.dart';
+import 'activity_model.dart';
 
 class Destination {
   String imageUrl;
@@ -8,11 +8,11 @@ class Destination {
   List<Activity> activities;
 
   Destination({
-    this.imageUrl,
-    this.city,
-    this.country,
-    this.description,
-    this.activities,
+    required this.imageUrl,
+    required this.city,
+    required this.country,
+    required this.description,
+    required this.activities,
   });
 }
 
